@@ -1,6 +1,9 @@
 import express from "express";
 import cors from "cors";
 import tasksRouter from "./routes/tasks";
+import destinationsRouter from "./routes/destinations";
+import toursRouter from "./routes/tours";
+import bookingsRouter from "./routes/bookings";
 
 const app = express();
 
@@ -9,10 +12,15 @@ app.use(express.json());
 
 // API-Routen
 app.use("/api/tasks", tasksRouter);
+app.use("/api/destinations", destinationsRouter);
+app.use("/api/tours", toursRouter);
+app.use("/api/bookings", bookingsRouter);
 
 // Root-Route
 app.get("/", (_req, res) => {
-  res.send("Task Manager API is running. Use /api/tasks");
+  res.send(
+    "Abschlussprojekt-Reiseinfo-Syrien-Deutschland API läuft. Verwenden Sie /api/destinations, /api/tours, /api/bookings"
+  );
 });
 
 // Error-Handler (muss als letzte Middleware registriert sein)

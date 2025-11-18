@@ -13,3 +13,34 @@ model Task {
   done      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+
+model Destination {
+  id          Int     @id @default(autoincrement())
+  country     String
+  city        String
+  description String?
+  tours       Tour[]
+}
+
+model Tour {
+  id            Int         @id @default(autoincrement())
+  destination   Destination @relation(fields: [destinationId], references: [id])
+  destinationId Int
+  title         String
+  description   String?
+  price         Float
+  seatsTotal    Int
+  seatsBooked   Int      @default(0)
+  createdAt     DateTime @default(now())
+  bookings      Booking[]
+}
+
+model Booking {
+  id        Int      @id @default(autoincrement())
+  tour      Tour     @relation(fields: [tourId], references: [id])
+  tourId    Int
+  name      String
+  email     String
+  seats     Int
+  createdAt DateTime @default(now())
+}
