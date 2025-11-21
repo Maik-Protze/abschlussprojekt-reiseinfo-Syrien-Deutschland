@@ -1,9 +1,9 @@
 export default {
   datasources: {
     db: {
-      provider: "sqlite",
-      // Prisma Migrate liest diese URL; hier ENV benutzen
-      url: process.env.DATABASE_URL ?? "file:./dev.db",
+      provider: "postgresql",
+      // PostgreSQL connection string from environment
+      url: process.env.DATABASE_URL ?? "postgresql://postgres:password@localhost:5432/reiseinfo_db",
     },
   },
 };
