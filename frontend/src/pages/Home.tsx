@@ -27,6 +27,7 @@ export default function Home() {
       <div>
         <h3>Damascus - Die Perle des Orients</h3>
         <img src="/syria/damascus.jpg" alt="Damascus" />
+
         <p>
           Damascus ist die Hauptstadt Syriens und eine der ältesten kontinuierlich bewohnten Städte der Welt. 
           Mit einer Geschichte von über 4.000 Jahren ist Damascus ein wahres kulturelles und historisches Juwel 
