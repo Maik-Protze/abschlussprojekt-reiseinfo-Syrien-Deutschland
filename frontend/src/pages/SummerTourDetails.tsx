@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Button from '../components/Button'
 
@@ -669,6 +669,11 @@ const summerToursData: { [key: string]: TourDetail } = {
 export default function SummerTourDetails() {
     const { tourId } = useParams<{ tourId: string }>()
     const tour = tourId ? summerToursData[tourId] : null
+
+    // Scroll to top when component mounts or tourId changes
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [tourId])
 
     if (!tour) {
         return (
