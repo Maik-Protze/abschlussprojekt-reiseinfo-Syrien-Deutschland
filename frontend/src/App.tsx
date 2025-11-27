@@ -5,6 +5,7 @@ import Destinations from './pages/Destinations'
 import TourDetails from './pages/TourDetails'
 import Tours from './pages/Tours'
 import SummerPrograms from './pages/SummerPrograms'
+import SummerTourDetails from './pages/SummerTourDetails'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
@@ -254,6 +255,7 @@ export default function App() {
             <Route path="/tours" element={<Tours />} />
             <Route path="/tours/:id" element={<TourDetails />} />
             <Route path="/summer-programs" element={<SummerPrograms />} />
+            <Route path="/summer-programs/:tourId" element={<SummerTourDetails />} />
             <Route path="/destinations" element={<Destinations />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />

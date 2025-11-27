@@ -203,8 +203,8 @@ export default function SummerPrograms() {
                                         <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--color-primary)' }}>
                                             {offer.price} € <span style={{ fontSize: '0.875rem', fontWeight: 'normal', color: 'var(--color-text-light)' }}>p.P.</span>
                                         </div>
-                                        <Link to="/contact">
-                                            <Button variant="primary">Anfragen</Button>
+                                        <Link to={`/summer-programs/${offer.id}`}>
+                                            <Button variant="primary">Details ansehen</Button>
                                         </Link>
                                     </div>
                                 </div>
