@@ -34,6 +34,11 @@ export default function Tours() {
     const [selectedCategory, setSelectedCategory] = useState('')
     const [sortBy, setSortBy] = useState('')
 
+    // Scroll to top on mount
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     useEffect(() => {
         let url = '/api/tours'
         const params = new URLSearchParams()
@@ -57,15 +62,17 @@ export default function Tours() {
             {/* Hero Section */}
             <div
                 style={{
-                    background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
+                    background: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1600&h=600&fit=crop)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
                     color: 'white',
                     padding: 'var(--spacing-3xl) 0',
                     textAlign: 'center',
                 }}
             >
                 <div className="container">
-                    <h1 style={{ color: 'white', marginBottom: 'var(--spacing-md)' }}>Reiseangebote</h1>
-                    <p style={{ fontSize: 'var(--font-size-xl)', color: 'white' }}>
+                    <h1 style={{ color: 'white', marginBottom: 'var(--spacing-md)', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>Reiseangebote</h1>
+                    <p style={{ fontSize: 'var(--font-size-xl)', color: 'white', textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
                         Finden Sie Ihre perfekte Reise aus über {tours.length} Angeboten
                     </p>
                 </div>

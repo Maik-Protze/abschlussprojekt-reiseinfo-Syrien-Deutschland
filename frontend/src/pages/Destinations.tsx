@@ -35,6 +35,11 @@ export default function Destinations() {
   const [loading, setLoading] = useState(true)
   const [activeMood, setActiveMood] = useState<Mood>('All')
 
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   useEffect(() => {
     fetchJSON('/api/destinations')
       .then((d) => {
@@ -53,13 +58,13 @@ export default function Destinations() {
       'Berlin': '/germany/berlin.jpg',
       'Leipzig': '/germany/leipzig.jpg',
       'München': 'https://images.unsplash.com/photo-1534313314376-a72289b6181e?w=800&h=600&fit=crop',
-      
+
       // Syrische Städte - lokale Bilder
       'Damascus': '/syria/damascus.jpg',
       'Damaskus': '/syria/damascus.jpg',
       'Aleppo': '/syria/aleppo.jpg',
       'Haleb': '/syria/aleppo.jpg',
-      
+
       // Internationale Destinationen - Unsplash
       'Paris': 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&h=600&fit=crop&v=2',
       'Barcelona': 'https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=800&h=600&fit=crop',

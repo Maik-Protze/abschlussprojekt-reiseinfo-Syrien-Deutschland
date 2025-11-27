@@ -18,6 +18,7 @@ export default function BlogPost() {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         if (id) {
             fetchJSON(`/api/blog/${id}`)
                 .then((data) => {

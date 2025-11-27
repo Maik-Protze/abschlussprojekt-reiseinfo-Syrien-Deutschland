@@ -18,6 +18,11 @@ export default function Blog() {
     const [loading, setLoading] = useState(true)
     const [selectedCategory, setSelectedCategory] = useState('')
 
+    // Scroll to top on mount
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     useEffect(() => {
         let url = '/api/blog'
         if (selectedCategory) url += `?category=${selectedCategory}`
@@ -46,17 +51,19 @@ export default function Blog() {
             {/* Hero */}
             <div
                 style={{
-                    background: 'linear-gradient(135deg, #8B5CF6, #EC4899)',
+                    background: 'linear-gradient(rgba(139, 92, 246, 0.8), rgba(236, 72, 153, 0.8)), url(https://images.unsplash.com/photo-1455849318743-b2233052fcff?w=1600&h=600&fit=crop)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
                     color: 'white',
                     padding: 'var(--spacing-3xl) 0',
                     textAlign: 'center',
                 }}
             >
                 <div className="container">
-                    <h1 style={{ color: 'white', marginBottom: 'var(--spacing-md)' }}>
+                    <h1 style={{ color: 'white', marginBottom: 'var(--spacing-md)', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
                         📰 Reiseblog & Tipps
                     </h1>
-                    <p style={{ fontSize: 'var(--font-size-xl)', color: 'white' }}>
+                    <p style={{ fontSize: 'var(--font-size-xl)', color: 'white', textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
                         Inspirierende Geschichten und hilfreiche Reisetipps von unseren Experten
                     </p>
                 </div>

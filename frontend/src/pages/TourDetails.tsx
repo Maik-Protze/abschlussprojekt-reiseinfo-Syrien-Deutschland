@@ -32,6 +32,7 @@ export default function TourDetails() {
   const [bookingSubmitted, setBookingSubmitted] = useState(false)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     if (id) {
       fetchJSON(`/api/tours/${id}`)
         .then((data) => {

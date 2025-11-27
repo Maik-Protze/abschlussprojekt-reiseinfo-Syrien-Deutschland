@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 
@@ -79,6 +79,11 @@ const summerEvents = [
 ]
 
 export default function SummerPrograms() {
+    // Scroll to top on mount
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div>
             {/* Hero */}

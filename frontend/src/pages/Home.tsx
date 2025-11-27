@@ -26,6 +26,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetchJSON('/api/tours?featured=true')
       .then((tours) => {
         setFeaturedTours(tours.slice(0, 6))
