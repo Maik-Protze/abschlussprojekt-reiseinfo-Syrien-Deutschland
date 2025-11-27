@@ -45,6 +45,15 @@ const exclusiveSummerOffers = [
         imageUrl: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800&h=600&fit=crop', // White yachts in harbor
         tags: ['Segeln', 'Luxus', 'Inseln'],
         duration: '7 Tage'
+    },
+    {
+        id: 'summer-5',
+        title: 'Leipzig Kulturerlebnis',
+        description: 'Entdecken Sie Leipzig: Völkerschlacht mit Museum, Uni-Riese, Sachsentherme, Auerbachskeller und das historische Stadtzentrum.',
+        price: 599,
+        imageUrl: '/germany/leipzig-hero.jpg',
+        tags: ['Kultur', 'Geschichte', 'Wellness'],
+        duration: '5 Tage'
     }
 ]
 
