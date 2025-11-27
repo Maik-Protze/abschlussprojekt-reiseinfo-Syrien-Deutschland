@@ -12,6 +12,7 @@ import Contact from './pages/Contact'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Impressum from './pages/Impressum'
+import PresentationPage from './presentation/PresentationPage'
 
 import './index.css'
 
@@ -158,6 +159,22 @@ export default function App() {
                   <span>Blog</span>
                 </Link>
                 <Link
+                  to="/presentation"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.75rem 1.25rem',
+                    color: 'white',
+                    fontWeight: 500,
+                    borderRadius: 'var(--radius-lg)',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  <span style={{ fontSize: '1.25rem' }}>🎯</span>
+                  <span>Präsentation</span>
+                </Link>
+                <Link
                   to="/contact"
                   style={{
                     display: 'flex',
@@ -260,6 +277,7 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/presentation" element={<PresentationPage />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/impressum" element={<Impressum />} />
