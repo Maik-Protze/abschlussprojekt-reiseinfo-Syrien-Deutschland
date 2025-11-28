@@ -109,7 +109,7 @@ const TravelDreamsPresentation: React.FC = () => {
           <div style={{ fontSize: '1.5rem' }}>
             <p>🌍 TravelDreams - Ihre Traumreise beginnt hier</p>
             <p style={{ marginTop: '2rem' }}>
-              <strong>GitHub:</strong> Maik-Protze/abschlussprojekt-reiseinfo-Syrien-Deutschland
+              <strong>GitHub:</strong> Abdullah Jlilati Maik-Protze/TravelDreams - Ihre Traumreise beginnt hier 
             </p>
           </div>
         </div>
