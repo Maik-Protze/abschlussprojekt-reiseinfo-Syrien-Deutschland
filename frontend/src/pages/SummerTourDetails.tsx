@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Button from '../components/Button'
+import VolkerschlachtdenkmalModal from '../components/VolkerschlachtdenkmalModal'
 
 type TourDetail = {
     id: string
@@ -667,8 +668,9 @@ const summerToursData: { [key: string]: TourDetail } = {
 }
 
 export default function SummerTourDetails() {
-    const { tourId } = useParams<{ tourId: string }>()
+    const { tourId } = useParams()
     const tour = tourId ? summerToursData[tourId] : null
+    const [isVolkerschlachtModalOpen, setIsVolkerschlachtModalOpen] = useState(false)
 
     // Scroll to top when component mounts or tourId changes
     useEffect(() => {
@@ -766,9 +768,47 @@ export default function SummerTourDetails() {
                     <h2 className="text-center mb-xl">Highlights</h2>
                     <div className="grid grid-3">
                         {tour.highlights.map((highlight, index) => (
-                            <div key={index} className="card" style={{ textAlign: 'center', border: 'none' }}>
-                                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✨</div>
-                                <p style={{ fontWeight: 'bold', color: 'var(--color-text-dark)' }}>{highlight}</p>
+                            <div 
+                                key={index} 
+                                className="card" 
+                                onClick={highlight.includes('Völkerschlachtdenkmal') ? () => setIsVolkerschlachtModalOpen(true) : undefined}
+                                style={{ 
+                                    textAlign: 'center', 
+                                    border: 'none',
+                                    cursor: highlight.includes('Völkerschlachtdenkmal') ? 'pointer' : 'default',
+                                    transition: 'all 0.3s ease',
+                                    background: highlight.includes('Völkerschlachtdenkmal') ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'white',
+                                    color: highlight.includes('Völkerschlachtdenkmal') ? 'white' : 'inherit'
+                                }}
+                                onMouseEnter={(e) => {
+                                    if (highlight.includes('Völkerschlachtdenkmal')) {
+                                        e.currentTarget.style.transform = 'scale(1.05)';
+                                        e.currentTarget.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.3)';
+                                    }
+                                }}
+                                onMouseLeave={(e) => {
+                                    if (highlight.includes('Völkerschlachtdenkmal')) {
+                                        e.currentTarget.style.transform = 'scale(1)';
+                                        e.currentTarget.style.boxShadow = 'inherit';
+                                    }
+                                }}
+                            >
+                                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>
+                                    {highlight.includes('Völkerschlachtdenkmal') ? '🏛️' : '✨'}
+                                </div>
+                                <p style={{ fontWeight: 'bold', color: highlight.includes('Völkerschlachtdenkmal') ? 'white' : 'var(--color-text-dark)' }}>
+                                    {highlight}
+                                </p>
+                                {highlight.includes('Völkerschlachtdenkmal') && (
+                                    <div style={{ 
+                                        marginTop: '0.5rem', 
+                                        fontSize: '0.8rem', 
+                                        opacity: 0.9,
+                                        color: 'white'
+                                    }}>
+                                        📸 Klicken für Details & Preise
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>
@@ -781,13 +821,55 @@ export default function SummerTourDetails() {
                     <h2 className="text-center mb-xl">Sehenswürdigkeiten & Aktivitäten</h2>
                     <div className="grid grid-2">
                         {tour.attractions.map((attraction, index) => (
-                            <div key={index} className="card">
+                            <div 
+                                key={index} 
+                                className="card"
+                                onClick={attraction.name === 'Völkerschlachtdenkmal' ? () => setIsVolkerschlachtModalOpen(true) : undefined}
+                                style={{ 
+                                    cursor: attraction.name === 'Völkerschlachtdenkmal' ? 'pointer' : 'default',
+                                    transition: 'all 0.3s ease',
+                                    transform: attraction.name === 'Völkerschlachtdenkmal' ? 'scale(1.02)' : 'scale(1)',
+                                    boxShadow: attraction.name === 'Völkerschlachtdenkmal' ? '0 8px 25px rgba(0,0,0,0.15)' : 'inherit'
+                                }}
+                                onMouseEnter={(e) => {
+                                    if (attraction.name === 'Völkerschlachtdenkmal') {
+                                        e.currentTarget.style.transform = 'scale(1.05)';
+                                        e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,0,0,0.2)';
+                                    }
+                                }}
+                                onMouseLeave={(e) => {
+                                    if (attraction.name === 'Völkerschlachtdenkmal') {
+                                        e.currentTarget.style.transform = 'scale(1.02)';
+                                        e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+                                    }
+                                }}
+                            >
                                 <div className="card-content">
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
                                         <div style={{ fontSize: '3rem' }}>{attraction.icon}</div>
-                                        <h3 style={{ margin: 0 }}>{attraction.name}</h3>
+                                        <div>
+                                            <h3 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                                {attraction.name}
+                                                {attraction.name === 'Völkerschlachtdenkmal' && (
+                                                    <span style={{ fontSize: '0.8rem', color: '#0ea5e9' }}>📸 Klicken für Details</span>
+                                                )}
+                                            </h3>
+                                        </div>
                                     </div>
                                     <p style={{ color: 'var(--color-text-medium)' }}>{attraction.description}</p>
+                                    {attraction.name === 'Völkerschlachtdenkmal' && (
+                                        <div style={{ 
+                                            marginTop: '1rem', 
+                                            padding: '0.5rem 1rem', 
+                                            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
+                                            color: 'white', 
+                                            borderRadius: '20px',
+                                            fontSize: '0.9rem',
+                                            textAlign: 'center'
+                                        }}>
+                                            💫 Interaktive Präsentation mit Bildern & Preisen
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ))}
@@ -827,10 +909,32 @@ export default function SummerTourDetails() {
                                                 borderBottom: index < day.activities.length - 1 ? '1px solid var(--color-border)' : 'none',
                                                 display: 'flex',
                                                 alignItems: 'center',
-                                                gap: '0.5rem'
-                                            }}>
+                                                gap: '0.5rem',
+                                                cursor: activity.includes('Völkerschlachtdenkmal') ? 'pointer' : 'default'
+                                            }}
+                                            onClick={activity.includes('Völkerschlachtdenkmal') ? () => setIsVolkerschlachtModalOpen(true) : undefined}
+                                            onMouseEnter={(e) => {
+                                                if (activity.includes('Völkerschlachtdenkmal')) {
+                                                    e.currentTarget.style.background = 'rgba(102, 126, 234, 0.1)';
+                                                    e.currentTarget.style.borderRadius = '4px';
+                                                }
+                                            }}
+                                            onMouseLeave={(e) => {
+                                                if (activity.includes('Völkerschlachtdenkmal')) {
+                                                    e.currentTarget.style.background = 'transparent';
+                                                }
+                                            }}
+                                            >
                                                 <span style={{ color: 'var(--color-primary)' }}>✓</span>
-                                                {activity}
+                                                <span style={{ 
+                                                    color: activity.includes('Völkerschlachtdenkmal') ? '#0ea5e9' : 'inherit',
+                                                    fontWeight: activity.includes('Völkerschlachtdenkmal') ? 'bold' : 'normal'
+                                                }}>
+                                                    {activity}
+                                                    {activity.includes('Völkerschlachtdenkmal') && (
+                                                        <span style={{ fontSize: '0.8rem', marginLeft: '0.5rem' }}>📸</span>
+                                                    )}
+                                                </span>
                                             </li>
                                         ))}
                                     </ul>
@@ -909,6 +1013,12 @@ export default function SummerTourDetails() {
                     </Link>
                 </div>
             </section>
+
+            {/* Völkerschlachtdenkmal Modal */}
+            <VolkerschlachtdenkmalModal 
+                isOpen={isVolkerschlachtModalOpen}
+                onClose={() => setIsVolkerschlachtModalOpen(false)}
+            />
         </div>
     )
 }
