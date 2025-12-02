@@ -51,16 +51,11 @@ export default function TourDetails() {
     if (!id) return
 
     try {
-      const response = await fetch('http://localhost:3000/api/bookings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          tourId: parseInt(id),
-          ...bookingForm,
-        }),
+      const { postJSON } = await import('../utils/api')
+      await postJSON('/api/bookings', {
+        tourId: parseInt(id),
+        ...bookingForm,
       })
-
-      if (!response.ok) throw new Error('Booking failed')
 
       setBookingSubmitted(true)
       setBookingForm({ name: '', email: '', seats: 1 })
