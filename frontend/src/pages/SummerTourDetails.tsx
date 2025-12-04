@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Button from '../components/Button'
 import VolkerschlachtdenkmalModal from '../components/VolkerschlachtdenkmalModal'
+import CityHochhausModal from '../components/CityHochhausModal'
 
 type TourDetail = {
     id: string
@@ -671,6 +672,7 @@ export default function SummerTourDetails() {
     const { tourId } = useParams()
     const tour = tourId ? summerToursData[tourId] : null
     const [isVolkerschlachtModalOpen, setIsVolkerschlachtModalOpen] = useState(false)
+    const [isCityHochhausModalOpen, setIsCityHochhausModalOpen] = useState(false)
 
     // Scroll to top when component mounts or tourId changes
     useEffect(() => {
@@ -771,42 +773,48 @@ export default function SummerTourDetails() {
                             <div 
                                 key={index} 
                                 className="card" 
-                                onClick={highlight.includes('Völkerschlachtdenkmal') ? () => setIsVolkerschlachtModalOpen(true) : undefined}
+                                onClick={
+                                    highlight.includes('Völkerschlachtdenkmal') ? () => setIsVolkerschlachtModalOpen(true) :
+                                    highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') ? () => setIsCityHochhausModalOpen(true) : 
+                                    undefined
+                                }
                                 style={{ 
                                     textAlign: 'center', 
                                     border: 'none',
-                                    cursor: highlight.includes('Völkerschlachtdenkmal') ? 'pointer' : 'default',
+                                    cursor: (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus')) ? 'pointer' : 'default',
                                     transition: 'all 0.3s ease',
-                                    background: highlight.includes('Völkerschlachtdenkmal') ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'white',
-                                    color: highlight.includes('Völkerschlachtdenkmal') ? 'white' : 'inherit'
+                                    background: highlight.includes('Völkerschlachtdenkmal') ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 
+                                               (highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus')) ? 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)' : 'white',
+                                    color: (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus')) ? 'white' : 'inherit'
                                 }}
                                 onMouseEnter={(e) => {
-                                    if (highlight.includes('Völkerschlachtdenkmal')) {
+                                    if (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus')) {
                                         e.currentTarget.style.transform = 'scale(1.05)';
-                                        e.currentTarget.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.3)';
+                                        e.currentTarget.style.boxShadow = highlight.includes('Völkerschlachtdenkmal') ? '0 8px 25px rgba(102, 126, 234, 0.3)' : '0 8px 25px rgba(59, 130, 246, 0.3)';
                                     }
                                 }}
                                 onMouseLeave={(e) => {
-                                    if (highlight.includes('Völkerschlachtdenkmal')) {
+                                    if (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus')) {
                                         e.currentTarget.style.transform = 'scale(1)';
                                         e.currentTarget.style.boxShadow = 'inherit';
                                     }
                                 }}
                             >
                                 <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>
-                                    {highlight.includes('Völkerschlachtdenkmal') ? '🏛️' : '✨'}
+                                    {highlight.includes('Völkerschlachtdenkmal') ? '🏛️' : 
+                                     highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') ? '🏢' : '✨'}
                                 </div>
-                                <p style={{ fontWeight: 'bold', color: highlight.includes('Völkerschlachtdenkmal') ? 'white' : 'var(--color-text-dark)' }}>
+                                <p style={{ fontWeight: 'bold', color: (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus')) ? 'white' : 'var(--color-text-dark)' }}>
                                     {highlight}
                                 </p>
-                                {highlight.includes('Völkerschlachtdenkmal') && (
+                                {(highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus')) && (
                                     <div style={{ 
                                         marginTop: '0.5rem', 
                                         fontSize: '0.8rem', 
                                         opacity: 0.9,
                                         color: 'white'
                                     }}>
-                                        📸 Klicken für Details & Preise
+                                        📸 Klicken für Details & {highlight.includes('Völkerschlachtdenkmal') ? 'Preise' : 'Panorama'}
                                     </div>
                                 )}
                             </div>
@@ -910,29 +918,37 @@ export default function SummerTourDetails() {
                                                 display: 'flex',
                                                 alignItems: 'center',
                                                 gap: '0.5rem',
-                                                cursor: activity.includes('Völkerschlachtdenkmal') ? 'pointer' : 'default'
+                                                cursor: (activity.includes('Völkerschlachtdenkmal') || activity.includes('City-Hochhaus') || activity.includes('Uni-Riese')) ? 'pointer' : 'default'
                                             }}
-                                            onClick={activity.includes('Völkerschlachtdenkmal') ? () => setIsVolkerschlachtModalOpen(true) : undefined}
+                                            onClick={
+                                                activity.includes('Völkerschlachtdenkmal') ? () => setIsVolkerschlachtModalOpen(true) :
+                                                activity.includes('City-Hochhaus') || activity.includes('Uni-Riese') ? () => setIsCityHochhausModalOpen(true) :
+                                                undefined
+                                            }
                                             onMouseEnter={(e) => {
-                                                if (activity.includes('Völkerschlachtdenkmal')) {
-                                                    e.currentTarget.style.background = 'rgba(102, 126, 234, 0.1)';
+                                                if (activity.includes('Völkerschlachtdenkmal') || activity.includes('City-Hochhaus') || activity.includes('Uni-Riese')) {
+                                                    e.currentTarget.style.background = activity.includes('Völkerschlachtdenkmal') ? 'rgba(102, 126, 234, 0.1)' : 'rgba(59, 130, 246, 0.1)';
                                                     e.currentTarget.style.borderRadius = '4px';
                                                 }
                                             }}
                                             onMouseLeave={(e) => {
-                                                if (activity.includes('Völkerschlachtdenkmal')) {
+                                                if (activity.includes('Völkerschlachtdenkmal') || activity.includes('City-Hochhaus') || activity.includes('Uni-Riese')) {
                                                     e.currentTarget.style.background = 'transparent';
                                                 }
                                             }}
                                             >
                                                 <span style={{ color: 'var(--color-primary)' }}>✓</span>
                                                 <span style={{ 
-                                                    color: activity.includes('Völkerschlachtdenkmal') ? '#0ea5e9' : 'inherit',
-                                                    fontWeight: activity.includes('Völkerschlachtdenkmal') ? 'bold' : 'normal'
+                                                    color: activity.includes('Völkerschlachtdenkmal') ? '#0ea5e9' : 
+                                                           activity.includes('City-Hochhaus') || activity.includes('Uni-Riese') ? '#3b82f6' : 'inherit',
+                                                    fontWeight: (activity.includes('Völkerschlachtdenkmal') || activity.includes('City-Hochhaus') || activity.includes('Uni-Riese')) ? 'bold' : 'normal'
                                                 }}>
                                                     {activity}
                                                     {activity.includes('Völkerschlachtdenkmal') && (
                                                         <span style={{ fontSize: '0.8rem', marginLeft: '0.5rem' }}>📸</span>
+                                                    )}
+                                                    {(activity.includes('City-Hochhaus') || activity.includes('Uni-Riese')) && (
+                                                        <span style={{ fontSize: '0.8rem', marginLeft: '0.5rem' }}>🏢</span>
                                                     )}
                                                 </span>
                                             </li>
@@ -1018,6 +1034,12 @@ export default function SummerTourDetails() {
             <VolkerschlachtdenkmalModal 
                 isOpen={isVolkerschlachtModalOpen}
                 onClose={() => setIsVolkerschlachtModalOpen(false)}
+            />
+
+            {/* City-Hochhaus (Uni-Riese) Modal */}
+            <CityHochhausModal 
+                isOpen={isCityHochhausModalOpen}
+                onClose={() => setIsCityHochhausModalOpen(false)}
             />
         </div>
     )
