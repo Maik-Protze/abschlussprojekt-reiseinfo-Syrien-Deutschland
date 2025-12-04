@@ -12,18 +12,18 @@ Die Datenbank ist leer nach dem Klonen!
 ### 1. Backend-Abhängigkeiten installieren
 ```bash
 cd backend
-npm install
+bun install
 ```
 
 ### 2. Datenbank-Schema erstellen
 ```bash
-npm run prisma:generate
-npm run prisma:migrate
+bun run prisma:generate
+bun run prisma:migrate
 ```
 
 ### 3. **WICHTIG:** Seed-Daten laden
 ```bash
-npm run prisma:seed
+bun run prisma:seed
 ```
 
 Dieser Befehl lädt:

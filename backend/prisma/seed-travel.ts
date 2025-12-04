@@ -473,6 +473,39 @@ Gute Reise!`,
                 author: 'Sarah Weber',
             },
         }),
+        prisma.blogPost.create({
+            data: {
+                title: 'Völkerschlachtdenkmal Leipzig - Monument der Geschichte',
+                excerpt: 'Das imposante Völkerschlachtdenkmal in Leipzig ist eines der größten Denkmäler Europas und ein Muss für jeden Geschichtsinteressierten.',
+                content: `Das Völkerschlachtdenkmal in Leipzig ist nicht nur ein beeindruckendes architektonisches Meisterwerk, sondern auch ein bedeutendes historisches Monument.
+
+**Historischer Hintergrund:**
+Das Denkmal wurde zur Erinnerung an die Völkerschlacht bei Leipzig von 1813 errichtet, bei der Napoleon entscheidend geschlagen wurde. Mit 91 Metern Höhe ist es eines der größten Denkmäler Europas.
+
+**Was Sie erwartet:**
+- Atemberaubender Rundumblick von der Aussichtsplattform
+- Museum zur Völkerschlacht mit interaktiven Ausstellungen
+- Beeindruckende Krypta mit monumentalen Wächterfiguren
+- Audioguide in mehreren Sprachen verfügbar
+
+**Museum-Highlights:**
+🏛️ **Interaktive Dauerausstellung** zur Schlacht von 1813
+🎬 **3D-Film** über die historischen Ereignisse
+⚔️ **Originalexponate** und Uniformen der damaligen Zeit
+🗺️ **Detaillierte Schlachtpläne** und Strategiekarten
+
+**Praktische Informationen:**
+- **Öffnungszeiten:** Täglich 10:00 - 18:00 Uhr
+- **Eintritt:** Erwachsene 8€, Ermäßigt 6€
+- **Anfahrt:** S-Bahn bis "Völkerschlachtdenkmal"
+- **Tipp:** Kombinieren Sie den Besuch mit dem nahegelegenen Südfriedhof
+
+Das Völkerschlachtdenkmal ist ein absolutes Muss bei jedem Leipzig-Besuch und bietet Geschichte zum Anfassen!`,
+                imageUrl: '/germany/leipzig.jpg',
+                category: 'Destinationen',
+                author: 'Dr. Michael Wagner',
+            },
+        }),
     ]);
 
     console.log('Blog posts created:', blogPosts.length);

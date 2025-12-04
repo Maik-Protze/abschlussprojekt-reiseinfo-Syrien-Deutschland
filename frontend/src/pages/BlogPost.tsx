@@ -13,7 +13,7 @@ type BlogPost = {
 }
 
 export default function BlogPost() {
-    const { id } = useParams<{ id: string }>()
+    const { id } = useParams()
     const [post, setPost] = useState<BlogPost | null>(null)
     const [loading, setLoading] = useState(true)
 

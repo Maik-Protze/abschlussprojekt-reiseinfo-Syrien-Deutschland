@@ -16,7 +16,7 @@
     "prisma:migrate:reset": "prisma migrate reset",
     "prisma:db:push": "prisma db push",
     "prisma:studio": "prisma studio",
-    "prisma:seed": "node prisma/seed.js"
+    "prisma:seed": "bun prisma/seed-travel.ts"
   },
   "dependencies": {
     "@prisma/client": "5.15.0",
