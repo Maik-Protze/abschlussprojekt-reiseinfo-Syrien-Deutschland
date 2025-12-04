@@ -1,72 +1,72 @@
-# 🔍 خطوات التحقق من ميزة Völkerschlachtdenkmal
+# 🔍 Schritte zur Überprüfung der Völkerschlachtdenkmal-Funktion
 
-## الخطوات للتحقق من أن الميزة تعمل:
+## Schritte zur Überprüfung, ob die Funktion funktioniert:
 
-### 1. افتح المتصفح
+### 1. Browser öffnen
 ```
-http://localhost:5175/summer-programs/summer-5
+http://localhost:5176/summer-programs/summer-5
 ```
 
-### 2. تحقق من تحميل الصفحة
-- يجب أن ترى صفحة "Leipzig Kulturerlebnis"
-- يجب أن يكون هناك صورة كبيرة في الأعلى (Hero Image)
+### 2. Seitenladevorgang überprüfen
+- Sie sollten die Seite "Leipzig Kulturerlebnis" sehen
+- Es sollte ein großes Bild oben geben (Hero Image)
 
-### 3. ابحث عن قسم "Highlights"
-- اسحب للأسفل قليلاً
-- يجب أن ترى عنوان "Highlights"
-- تحته يجب أن يكون هناك **5 بطاقات**
+### 3. Nach dem "Highlights"-Bereich suchen
+- Scrollen Sie etwas nach unten
+- Sie sollten die Überschrift "Highlights" sehen
+- Darunter sollten **5 Karten** sein
 
-### 4. البطاقة البنفسجية
-البطاقة الأولى يجب أن تكون:
-- **اللون**: خلفية بنفسجية متدرجة (gradient)
-- **الأيقونة**: 🏛️
-- **النص**: "Völkerschlachtdenkmal mit Museum"
-- **نص إضافي**: "📸 Klicken für Details & Preise"
+### 4. Die violette Karte
+Die erste Karte sollte sein:
+- **Farbe**: Violetter Verlaufshintergrund (gradient)
+- **Symbol**: 🏛️
+- **Text**: "Völkerschlachtdenkmal mit Museum"
+- **Zusatztext**: "📸 Klicken für Details & Preise"
 
-### 5. إذا لم تظهر البطاقة البنفسجية:
+### 5. Falls die violette Karte nicht erscheint:
 
-#### أ) تحديث قوي للصفحة
+#### a) Harte Seitenaktualisierung
 - Windows/Linux: `Ctrl + Shift + R`
 - Mac: `Cmd + Shift + R`
 
-#### ب) مسح الذاكرة المؤقتة
-1. افتح أدوات المطور (F12)
-2. انقر بزر الماوس الأيمن على زر التحديث
-3. اختر "Empty Cache and Hard Reload"
+#### b) Cache leeren
+1. Entwicklertools öffnen (F12)
+2. Rechtsklick auf den Aktualisieren-Button
+3. "Empty Cache and Hard Reload" wählen
 
-#### ج) تحقق من Console
-1. افتح أدوات المطور (F12)
-2. انتقل إلى تبويب "Console"
-3. ابحث عن أي أخطاء باللون الأحمر
-4. أرسل لي الأخطاء إن وجدت
+#### c) Console überprüfen
+1. Entwicklertools öffnen (F12)
+2. Zum "Console"-Tab wechseln
+3. Nach roten Fehlermeldungen suchen
+4. Senden Sie mir die Fehler, falls vorhanden
 
-### 6. اختبار النقر
-عند النقر على البطاقة البنفسجية:
-- يجب أن يفتح **مودال كبير**
-- المودال يحتوي على **5 تبويبات** في الأعلى
-- كل تبويب يحتوي على صور ومعلومات
+### 6. Klick-Test
+Beim Klicken auf die violette Karte:
+- Sollte sich ein **großes Modal** öffnen
+- Das Modal enthält **5 Registerkarten** oben
+- Jede Registerkarte enthält Bilder und Informationen
 
-### 7. أماكن أخرى للنقر
-يمكنك أيضًا فتح المودال من:
+### 7. Andere Klick-Stellen
+Sie können das Modal auch öffnen von:
 
-#### في قسم "Sehenswürdigkeiten":
-- ابحث عن بطاقة "Völkerschlachtdenkmal"
-- انقر عليها
+#### Im "Sehenswürdigkeiten"-Bereich:
+- Suchen Sie die "Völkerschlachtdenkmal"-Karte
+- Klicken Sie darauf
 
-#### في قسم "Tagesablauf":
-- ابحث عن "Tag 2"
-- انقر على "Besuch des Völkerschlachtdenkmals"
+#### Im "Tagesablauf"-Bereich:
+- Suchen Sie "Tag 2"
+- Klicken Sie auf "Besuch des Völkerschlachtdenkmals"
 
 ---
 
-## إذا استمرت المشكلة:
+## Falls das Problem weiterhin besteht:
 
-### تحقق من الملفات:
+### Dateien überprüfen:
 ```bash
-# تحقق من وجود الصور
+# Überprüfen Sie das Vorhandensein der Bilder
 ls -la frontend/public/germany/leipzig/
 
-# يجب أن ترى:
+# Sie sollten sehen:
 # - voelkerschlachtdenkmal-aussen.jpg
 # - voelkerschlacht-innenraum.jpg
 # - leipzig-museum.jpg
@@ -74,13 +74,13 @@ ls -la frontend/public/germany/leipzig/
 # - volkerschlacht-banner03.jpg
 ```
 
-### تحقق من الخادم:
+### Server überprüfen:
 ```bash
-# تحقق من أن الخادم يعمل
-curl http://localhost:5175/
+# Überprüfen Sie, ob der Server läuft
+curl http://localhost:5176/
 ```
 
-### أعد تشغيل الخادم:
+### Server neu starten:
 ```bash
 cd frontend
 pkill -f "bun run dev"
@@ -89,7 +89,7 @@ bun run dev
 
 ---
 
-## معلومات إضافية:
-- الميزة تم إضافتها من قبل زميلك
-- الصور تم إضافتها اليوم
-- جميع التغييرات مرفوعة على GitHub
+## Zusätzliche Informationen:
+- Die Funktion wurde von Ihrem Kollegen hinzugefügt
+- Die Bilder wurden heute hinzugefügt
+- Alle Änderungen sind auf GitHub hochgeladen

@@ -34,25 +34,25 @@ const CityHochhausModal: React.FC<CityHochhausModalProps> = ({ isOpen, onClose }
             name: 'Nord', 
             icon: '🧭', 
             landmarks: ['Leipziger Messe', 'Flughafen Leipzig/Halle', 'Neue Messe', 'Porsche-Werk'],
-            fallback: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=500&fit=crop'
+            fallback: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=500&fit=crop&auto=format'
         },
         ost: { 
             name: 'Ost', 
             icon: '🌅', 
             landmarks: ['Völkerschlachtdenkmal', 'Cospudener See', 'Südfriedhof', 'Monument der Schlacht'],
-            fallback: 'https://images.unsplash.com/photo-1567696911980-2eed69a46042?w=800&h=500&fit=crop'
+            fallback: 'https://images.unsplash.com/photo-1567696911980-2eed69a46042?w=800&h=500&fit=crop&auto=format'
         },
         sued: { 
             name: 'Süd', 
             icon: '🌳', 
             landmarks: ['Clara-Zetkin-Park', 'Auwald', 'Cospudener See', 'Kulkwitzer See'],
-            fallback: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop'
+            fallback: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop&auto=format'
         },
         west: { 
             name: 'West', 
             icon: '🏛️', 
             landmarks: ['Innenstadt', 'Thomaskirche', 'Gewandhaus', 'Altes Rathaus', 'Nikolaikirche'],
-            fallback: 'https://images.unsplash.com/photo-1520637836862-4d197d17c27a?w=800&h=500&fit=crop'
+            fallback: 'https://images.unsplash.com/photo-1520637836862-4d197d17c27a?w=800&h=500&fit=crop&auto=format'
         }
     };
 

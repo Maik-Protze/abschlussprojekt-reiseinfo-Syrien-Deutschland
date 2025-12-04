@@ -1,88 +1,88 @@
-# ✅ حل مشكلة Völkerschlachtdenkmal Modal
+# ✅ Völkerschlachtdenkmal Modal Problem gelöst
 
-## المشكلة
-كانت الصور المطلوبة للمودال غير موجودة في المجلد `frontend/public/germany/leipzig/`، مما تسبب في عدم ظهور الصور عند فتح المودال.
+## Das Problem
+Die erforderlichen Bilder für das Modal waren nicht im Ordner `frontend/public/germany/leipzig/` vorhanden, was dazu führte, dass beim Öffnen des Modals keine Bilder angezeigt wurden.
 
-## الحل
-تم إنشاء جميع الصور المطلوبة وإضافتها إلى المجلد الصحيح:
+## Die Lösung
+Alle erforderlichen Bilder wurden erstellt und zum korrekten Ordner hinzugefügt:
 
-### الصور المضافة:
-1. **voelkerschlachtdenkmal-aussen.jpg** - منظر خارجي للنصب التذكاري
-2. **voelkerschlacht-innenraum.jpg** - قاعة الشهرة الداخلية
-3. **leipzig-museum.jpg** - متحف معركة الأمم
-4. **leipzig-panorama.jpg** - بانوراما مدينة لايبزيغ
-5. **volkerschlacht-banner03.jpg** - صورة رئيسية للنصب
+### Hinzugefügte Bilder:
+1. **voelkerschlachtdenkmal-aussen.jpg** - Außenansicht des Denkmals
+2. **voelkerschlacht-innenraum.jpg** - Ruhmeshalle im Inneren
+3. **leipzig-museum.jpg** - Museum zur Völkerschlacht
+4. **leipzig-panorama.jpg** - Leipzig Stadtpanorama
+5. **volkerschlacht-banner03.jpg** - Hauptbild des Denkmals
 
-## كيفية الاستخدام
+## Verwendung
 
-### 1. الوصول إلى الميزة
-انتقل إلى صفحة جولة لايبزيغ:
+### 1. Zugriff auf die Funktion
+Navigieren Sie zur Leipzig-Tour-Seite:
 ```
-http://localhost:5175/summer-programs/summer-5
+http://localhost:5176/summer-programs/summer-5
 ```
 
-### 2. فتح المودال
-يمكنك فتح المودال من **3 أماكن مختلفة**:
+### 2. Modal öffnen
+Sie können das Modal von **3 verschiedenen Stellen** öffnen:
 
-#### أ) من قسم Highlights
-- ابحث عن البطاقة البنفسجية "Völkerschlachtdenkmal mit Museum"
-- انقر عليها لفتح المودال
+#### a) Aus dem Highlights-Bereich
+- Suchen Sie die violette Karte "Völkerschlachtdenkmal mit Museum"
+- Klicken Sie darauf, um das Modal zu öffnen
 
-#### ب) من قسم Sehenswürdigkeiten (Attractions)
-- ابحث عن بطاقة "Völkerschlachtdenkmal"
-- انقر عليها لفتح المودال
+#### b) Aus dem Sehenswürdigkeiten-Bereich (Attractions)
+- Suchen Sie die "Völkerschlachtdenkmal"-Karte
+- Klicken Sie darauf, um das Modal zu öffnen
 
-#### ج) من جدول الرحلة (Itinerary)
-- في اليوم الثاني (Tag 2)
-- انقر على "Besuch des Völkerschlachtdenkmals"
+#### c) Aus dem Reiseplan (Itinerary)
+- Am zweiten Tag (Tag 2)
+- Klicken Sie auf "Besuch des Völkerschlachtdenkmals"
 
-### 3. التنقل في المودال
-المودال يحتوي على **5 تبويبات (Tabs)**:
+### 3. Navigation im Modal
+Das Modal enthält **5 Registerkarten (Tabs)**:
 
-1. **📋 Übersicht** - معلومات عامة، الموقع، ساعات العمل
-2. **🏛️ Außen** - صور المنظر الخارجي والتفاصيل المعمارية
-3. **🎭 Innen** - صور القاعات الداخلية (قاعة الشهرة، القبة)
-4. **🎨 Museum** - معلومات عن المتحف والمعروضات
-5. **💰 Preise** - أسعار التذاكر والعروض الخاصة
+1. **📋 Übersicht** - Allgemeine Informationen, Standort, Öffnungszeiten
+2. **🏛️ Außen** - Außenansicht-Bilder und architektonische Details
+3. **🎭 Innen** - Bilder der Innenräume (Ruhmeshalle, Kuppel)
+4. **🎨 Museum** - Informationen über das Museum und Ausstellungen
+5. **💰 Preise** - Ticketpreise und Sonderangebote
 
-### 4. إغلاق المودال
-- انقر على زر "×" في الزاوية العلوية اليمنى
-- أو انقر على زر "Schließen" في الأسفل
-- أو انقر خارج المودال
+### 4. Modal schließen
+- Klicken Sie auf die "×"-Schaltfläche in der oberen rechten Ecke
+- Oder klicken Sie auf die "Schließen"-Schaltfläche unten
+- Oder klicken Sie außerhalb des Modals
 
-## المميزات التقنية
+## Technische Features
 
-### التصميم
-- **Responsive Design**: يعمل على جميع أحجام الشاشات
-- **Hover Effects**: تأثيرات تفاعلية عند التمرير
-- **Gradient Background**: خلفية متدرجة بنفسجية جذابة
-- **Tab Navigation**: تنقل سهل بين الأقسام
+### Design
+- **Responsive Design**: Funktioniert auf allen Bildschirmgrößen
+- **Hover Effects**: Interaktive Effekte beim Überfahren
+- **Gradient Background**: Attraktiver violetter Verlaufshintergrund
+- **Tab Navigation**: Einfache Navigation zwischen Bereichen
 
-### الصور
-- **Fallback Images**: إذا لم تُحمّل الصورة المحلية، يتم استخدام صور من Unsplash
-- **Optimized Loading**: تحميل محسّن للصور
+### Bilder
+- **Fallback Images**: Wenn lokale Bilder nicht geladen werden, werden Unsplash-Bilder verwendet
+- **Optimized Loading**: Optimiertes Laden der Bilder
 
-## الملفات المعنية
+## Betroffene Dateien
 
-### الكود
-- `frontend/src/components/VolkerschlachtdenkmalModal.tsx` - مكون المودال
-- `frontend/src/pages/SummerTourDetails.tsx` - صفحة تفاصيل الجولة
+### Code
+- `frontend/src/components/VolkerschlachtdenkmalModal.tsx` - Modal-Komponente
+- `frontend/src/pages/SummerTourDetails.tsx` - Tour-Details-Seite
 
-### الصور
-- `frontend/public/germany/leipzig/*.jpg` - جميع صور المودال
+### Bilder
+- `frontend/public/germany/leipzig/*.jpg` - Alle Modal-Bilder
 
-## التحديثات المرفوعة إلى GitHub
-تم رفع جميع الصور إلى GitHub في الـ commit:
+## Updates zu GitHub hochgeladen
+Alle Bilder wurden zu GitHub im Commit hochgeladen:
 ```
 feat: Add Völkerschlachtdenkmal modal images
 ```
 
 ---
 
-## 🎯 الآن يمكنك:
-1. فتح المتصفح على `http://localhost:5175/summer-programs/summer-5`
-2. النقر على أي من المناطق القابلة للنقر
-3. استكشاف جميع التبويبات والصور
-4. الاستمتاع بالميزة الكاملة!
+## 🎯 Jetzt können Sie:
+1. Browser auf `http://localhost:5176/summer-programs/summer-5` öffnen
+2. Auf einen der klickbaren Bereiche klicken
+3. Alle Registerkarten und Bilder erkunden
+4. Die vollständige Funktion genießen!
 
-✅ **المشكلة محلولة بالكامل!**
+✅ **Problem vollständig gelöst!**
