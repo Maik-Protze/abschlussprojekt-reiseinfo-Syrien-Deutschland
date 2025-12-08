@@ -7,6 +7,7 @@ import SachsenthermeModal from '../components/SachsenthermeModal'
 import AuerbachskellerModal from '../components/AuerbachskellerModal'
 import ThomaskirchModal from '../components/ThomaskirchModal'
 import NikolaikircheModal from '../components/NikolaikircheModal'
+import StadtrundgangModal from '../components/StadtrundgangModal'
 
 type TourDetail = {
     id: string
@@ -577,7 +578,7 @@ const summerToursData: { [key: string]: TourDetail } = {
             'Sachsentherme Wellness-Erlebnis',
             'Historischer Auerbachskeller',
             'Nikolaikirche - Friedliche Revolution',
-            'Geführte Stadtrundgänge'
+            'Geführte Stadtrundgänge mit Profi-Guides'
         ],
         itinerary: [
             {
@@ -668,7 +669,8 @@ const summerToursData: { [key: string]: TourDetail } = {
             { name: 'Sachsentherme', description: 'Wellness-Oase mit Thermalbädern', icon: '♨️' },
             { name: 'Auerbachskeller', description: 'Historisches Restaurant (Goethes Faust)', icon: '🍷' },
             { name: 'Thomaskirche', description: 'Wirkungsstätte von Johann Sebastian Bach', icon: '🎵' },
-            { name: 'Nikolaikirche', description: 'Ausgangspunkt der Friedlichen Revolution', icon: '🕊️' }
+            { name: 'Nikolaikirche', description: 'Ausgangspunkt der Friedlichen Revolution', icon: '🕊️' },
+            { name: 'Geführte Stadtrundgänge', description: 'Professionelle Stadtführung durch Leipzig', icon: '🚶‍♂️' }
         ]
     }
 }
@@ -682,6 +684,7 @@ export default function SummerTourDetails() {
     const [isAuerbachskellerModalOpen, setIsAuerbachskellerModalOpen] = useState(false)
     const [isThomaskirchModalOpen, setIsThomaskirchModalOpen] = useState(false)
     const [isNikolaikircheModalOpen, setIsNikolaikircheModalOpen] = useState(false)
+    const [isStadtrundgangModalOpen, setIsStadtrundgangModalOpen] = useState(false)
 
     // Scroll to top when component mounts or tourId changes
     useEffect(() => {
@@ -789,34 +792,37 @@ export default function SummerTourDetails() {
                                     highlight.includes('Sachsentherme') ? () => setIsSachsenthermeModalOpen(true) :
                                     highlight.includes('Thomaskirche') ? () => setIsThomaskirchModalOpen(true) :
                                     highlight.includes('Nikolaikirche') ? () => setIsNikolaikircheModalOpen(true) :
+                                    highlight.includes('Stadtrundgänge') ? () => setIsStadtrundgangModalOpen(true) :
                                     undefined
                                 }
                                 style={{ 
                                     textAlign: 'center', 
                                     border: 'none',
-                                    cursor: (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche')) ? 'pointer' : 'default',
+                                    cursor: (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche') || highlight.includes('Stadtrundgänge')) ? 'pointer' : 'default',
                                     transition: 'all 0.3s ease',
                                     background: highlight.includes('Völkerschlachtdenkmal') ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 
                                                (highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus')) ? 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)' :
                                                highlight.includes('Auerbachskeller') ? 'linear-gradient(135deg, #8b5a2b 0%, #d2691e 100%)' :
                                                highlight.includes('Sachsentherme') ? 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)' :
                                                highlight.includes('Thomaskirche') ? 'linear-gradient(135deg, #8b5a2b 0%, #d2691e 100%)' :
-                                               highlight.includes('Nikolaikirche') ? 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)' : 'white',
-                                    color: (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche')) ? 'white' : 'inherit'
+                                               highlight.includes('Nikolaikirche') ? 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)' :
+                                               highlight.includes('Stadtrundgänge') ? 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)' : 'white',
+                                    color: (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche') || highlight.includes('Stadtrundgänge')) ? 'white' : 'inherit'
                                 }}
                                 onMouseEnter={(e) => {
-                                    if (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche')) {
+                                    if (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche') || highlight.includes('Stadtrundgänge')) {
                                         e.currentTarget.style.transform = 'scale(1.05)';
                                         e.currentTarget.style.boxShadow = highlight.includes('Völkerschlachtdenkmal') ? '0 8px 25px rgba(102, 126, 234, 0.3)' : 
                                                                             highlight.includes('Auerbachskeller') ? '0 8px 25px rgba(139, 90, 43, 0.3)' :
                                                                             highlight.includes('Sachsentherme') ? '0 8px 25px rgba(14, 165, 233, 0.3)' :
                                                                             highlight.includes('Thomaskirche') ? '0 8px 25px rgba(139, 90, 43, 0.3)' :
                                                                             highlight.includes('Nikolaikirche') ? '0 8px 25px rgba(220, 38, 38, 0.3)' :
+                                                                            highlight.includes('Stadtrundgänge') ? '0 8px 25px rgba(59, 130, 246, 0.3)' :
                                                                             '0 8px 25px rgba(59, 130, 246, 0.3)';
                                     }
                                 }}
                                 onMouseLeave={(e) => {
-                                    if (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche')) {
+                                    if (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche') || highlight.includes('Stadtrundgänge')) {
                                         e.currentTarget.style.transform = 'scale(1)';
                                         e.currentTarget.style.boxShadow = 'inherit';
                                     }
@@ -828,12 +834,13 @@ export default function SummerTourDetails() {
                                      highlight.includes('Auerbachskeller') ? '🍷' :
                                      highlight.includes('Sachsentherme') ? '♨️' :
                                      highlight.includes('Thomaskirche') ? '🎵' :
-                                     highlight.includes('Nikolaikirche') ? '🕊️' : '✨'}
+                                     highlight.includes('Nikolaikirche') ? '🕊️' :
+                                     highlight.includes('Stadtrundgänge') ? '🚂' : '✨'}
                                 </div>
-                                <p style={{ fontWeight: 'bold', color: (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche')) ? 'white' : 'var(--color-text-dark)' }}>
+                                <p style={{ fontWeight: 'bold', color: (highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche') || highlight.includes('Stadtrundgänge')) ? 'white' : 'var(--color-text-dark)' }}>
                                     {highlight}
                                 </p>
-                                {(highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche')) && (
+                                {(highlight.includes('Völkerschlachtdenkmal') || highlight.includes('Uni-Riese') || highlight.includes('City-Hochhaus') || highlight.includes('Auerbachskeller') || highlight.includes('Sachsentherme') || highlight.includes('Thomaskirche') || highlight.includes('Nikolaikirche') || highlight.includes('Stadtrundgänge')) && (
                                     <div style={{ 
                                         marginTop: '0.5rem', 
                                         fontSize: '0.8rem', 
@@ -844,7 +851,8 @@ export default function SummerTourDetails() {
                                                                    highlight.includes('Auerbachskeller') ? 'Speisekarte' :
                                                                    highlight.includes('Sachsentherme') ? 'Wellness-Info' :
                                                                    highlight.includes('Thomaskirche') ? 'Bach-Info' :
-                                                                   highlight.includes('Nikolaikirche') ? 'Revolution-Info' : 'Panorama'}
+                                                                   highlight.includes('Nikolaikirche') ? 'Revolution-Info' :
+                                                                   highlight.includes('Stadtrundgänge') ? 'Tour-Info' : 'Panorama'}
                                     </div>
                                 )}
                             </div>
@@ -868,22 +876,24 @@ export default function SummerTourDetails() {
                                     attraction.name === 'Sachsentherme' ? () => setIsSachsenthermeModalOpen(true) :
                                     attraction.name === 'Auerbachskeller' ? () => setIsAuerbachskellerModalOpen(true) :
                                     attraction.name === 'Thomaskirche' ? () => setIsThomaskirchModalOpen(true) :
+                                    attraction.name === 'Nikolaikirche' ? () => setIsNikolaikircheModalOpen(true) :
+                                    attraction.name === 'Geführte Stadtrundgänge' ? () => setIsStadtrundgangModalOpen(true) :
                                     undefined
                                 }
                                 style={{ 
-                                    cursor: (attraction.name === 'Völkerschlachtdenkmal' || attraction.name === 'Uni-Riese' || attraction.name === 'Sachsentherme' || attraction.name === 'Auerbachskeller' || attraction.name === 'Thomaskirche') ? 'pointer' : 'default',
+                                    cursor: (attraction.name === 'Völkerschlachtdenkmal' || attraction.name === 'Uni-Riese' || attraction.name === 'Sachsentherme' || attraction.name === 'Auerbachskeller' || attraction.name === 'Thomaskirche' || attraction.name === 'Nikolaikirche' || attraction.name === 'Geführte Stadtrundgänge') ? 'pointer' : 'default',
                                     transition: 'all 0.3s ease',
-                                    transform: (attraction.name === 'Völkerschlachtdenkmal' || attraction.name === 'Uni-Riese' || attraction.name === 'Sachsentherme' || attraction.name === 'Auerbachskeller' || attraction.name === 'Thomaskirche') ? 'scale(1.02)' : 'scale(1)',
-                                    boxShadow: (attraction.name === 'Völkerschlachtdenkmal' || attraction.name === 'Uni-Riese' || attraction.name === 'Sachsentherme' || attraction.name === 'Auerbachskeller' || attraction.name === 'Thomaskirche') ? '0 8px 25px rgba(0,0,0,0.15)' : 'inherit'
+                                    transform: (attraction.name === 'Völkerschlachtdenkmal' || attraction.name === 'Uni-Riese' || attraction.name === 'Sachsentherme' || attraction.name === 'Auerbachskeller' || attraction.name === 'Thomaskirche' || attraction.name === 'Nikolaikirche' || attraction.name === 'Geführte Stadtrundgänge') ? 'scale(1.02)' : 'scale(1)',
+                                    boxShadow: (attraction.name === 'Völkerschlachtdenkmal' || attraction.name === 'Uni-Riese' || attraction.name === 'Sachsentherme' || attraction.name === 'Auerbachskeller' || attraction.name === 'Thomaskirche' || attraction.name === 'Nikolaikirche' || attraction.name === 'Geführte Stadtrundgänge') ? '0 8px 25px rgba(0,0,0,0.15)' : 'inherit'
                                 }}
                                 onMouseEnter={(e) => {
-                                    if (attraction.name === 'Völkerschlachtdenkmal' || attraction.name === 'Uni-Riese' || attraction.name === 'Sachsentherme' || attraction.name === 'Auerbachskeller' || attraction.name === 'Thomaskirche') {
+                                    if (attraction.name === 'Völkerschlachtdenkmal' || attraction.name === 'Uni-Riese' || attraction.name === 'Sachsentherme' || attraction.name === 'Auerbachskeller' || attraction.name === 'Thomaskirche' || attraction.name === 'Nikolaikirche' || attraction.name === 'Geführte Stadtrundgänge') {
                                         e.currentTarget.style.transform = 'scale(1.05)';
                                         e.currentTarget.style.boxShadow = '0 12px 30px rgba(0,0,0,0.2)';
                                     }
                                 }}
                                 onMouseLeave={(e) => {
-                                    if (attraction.name === 'Völkerschlachtdenkmal' || attraction.name === 'Uni-Riese' || attraction.name === 'Sachsentherme' || attraction.name === 'Auerbachskeller' || attraction.name === 'Thomaskirche') {
+                                    if (attraction.name === 'Völkerschlachtdenkmal' || attraction.name === 'Uni-Riese' || attraction.name === 'Sachsentherme' || attraction.name === 'Auerbachskeller' || attraction.name === 'Thomaskirche' || attraction.name === 'Nikolaikirche' || attraction.name === 'Geführte Stadtrundgänge') {
                                         e.currentTarget.style.transform = 'scale(1.02)';
                                         e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
                                     }
@@ -909,6 +919,12 @@ export default function SummerTourDetails() {
                                                 )}
                                                 {attraction.name === 'Thomaskirche' && (
                                                     <span style={{ fontSize: '0.8rem', color: '#8b5a2b' }}>🎵 Klicken für Bach & Musik-Info</span>
+                                                )}
+                                                {attraction.name === 'Nikolaikirche' && (
+                                                    <span style={{ fontSize: '0.8rem', color: '#dc2626' }}>🕊️ Klicken für Revolution-Geschichte</span>
+                                                )}
+                                                {attraction.name === 'Geführte Stadtrundgänge' && (
+                                                    <span style={{ fontSize: '0.8rem', color: '#3b82f6' }}>🚶‍♂️ Klicken für Tour-Details</span>
                                                 )}
                                             </h3>
                                         </div>
@@ -977,6 +993,32 @@ export default function SummerTourDetails() {
                                             textAlign: 'center'
                                         }}>
                                             🎵 Johann Sebastian Bach & Thomanerchor seit 1212
+                                        </div>
+                                    )}
+                                    {attraction.name === 'Nikolaikirche' && (
+                                        <div style={{ 
+                                            marginTop: '1rem', 
+                                            padding: '0.5rem 1rem', 
+                                            background: 'linear-gradient(135deg, #dc2626 0%, #991b1b 100%)', 
+                                            color: 'white', 
+                                            borderRadius: '20px',
+                                            fontSize: '0.9rem',
+                                            textAlign: 'center'
+                                        }}>
+                                            🕊️ Friedliche Revolution 1989 & Montagsgebete
+                                        </div>
+                                    )}
+                                    {attraction.name === 'Geführte Stadtrundgänge' && (
+                                        <div style={{ 
+                                            marginTop: '1rem', 
+                                            padding: '0.5rem 1rem', 
+                                            background: 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)', 
+                                            color: 'white', 
+                                            borderRadius: '20px',
+                                            fontSize: '0.9rem',
+                                            textAlign: 'center'
+                                        }}>
+                                            🚶‍♂️ Professionelle Guides & Mehrsprachige Touren
                                         </div>
                                     )}
                                 </div>
@@ -1164,6 +1206,12 @@ export default function SummerTourDetails() {
             <NikolaikircheModal 
                 isOpen={isNikolaikircheModalOpen}
                 onClose={() => setIsNikolaikircheModalOpen(false)}
+            />
+
+            {/* Stadtrundgang Modal */}
+            <StadtrundgangModal 
+                isOpen={isStadtrundgangModalOpen}
+                onClose={() => setIsStadtrundgangModalOpen(false)}
             />
         </div>
     )

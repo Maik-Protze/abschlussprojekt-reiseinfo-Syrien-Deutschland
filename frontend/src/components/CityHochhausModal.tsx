@@ -65,7 +65,7 @@ const CityHochhausModal: React.FC<CityHochhausModalProps> = ({ isOpen, onClose }
                                 alt="City-Hochhaus Leipzig" 
                                 style={{ width: '100%', height: '400px', objectFit: 'cover', borderRadius: '8px' }}
                                 onError={(e) => {
-                                    e.currentTarget.src = "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=300&h=400&fit=crop";
+                                    e.currentTarget.src = "/germany/leipzig/uni-riese-stadtbild.jpg";
                                 }}
                             />
                         </div>
