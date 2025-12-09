@@ -27,9 +27,9 @@ bun run prisma:seed
 ```
 
 Dieser Befehl lädt:
-- ✅ 12 Touren mit Bildern
+- ✅ 14 Touren mit Bildern
 - ✅ 13 Destinationen
-- ✅ 4 Blog-Posts
+- ✅ 5 Blog-Posts
 
 ## Überprüfung
 
@@ -37,8 +37,8 @@ Nach dem Seed solltest du sehen:
 ```
 Starting seed for travel agency data...
 Destinations created: 13
-Tours created: 12
-Blog posts created: 4
+Tours created: 14
+Blog posts created: 5
 ✅ Travel agency seed data completed successfully!
 ```
 
