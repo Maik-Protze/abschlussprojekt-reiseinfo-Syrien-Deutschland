@@ -61,14 +61,25 @@ const StadtrundgangModal: React.FC<StadtrundgangModalProps> = ({ isOpen, onClose
                                     </ul>
                                 </div>
                             </div>
-                            <img 
-                                src="/germany/leipzig/stadtrundgang-karte.png" 
-                                alt="Leipzig Stadtrundgänge Karte - Übersicht aller Touren" 
-                                style={{ width: '100%', height: '400px', objectFit: 'contain', borderRadius: '8px' }}
-                                onError={(e) => {
-                                    e.currentTarget.src = "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=400&fit=crop";
-                                }}
-                            />
+                            {/* Google Maps Integration für Leipzig Stadtrundgang */}
+                            <div style={{ 
+                                width: '100%', 
+                                height: '400px', 
+                                borderRadius: '8px', 
+                                overflow: 'hidden',
+                                border: '2px solid #e5e7eb'
+                            }}>
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9680.234567890123!2d12.3738!3d51.3397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a6f818200f2c73%3A0x93b1bbf3c6c6e3cf!2sMarktplatz%2C%20Leipzig!5e0!3m2!1sde!2sde!4v1733835600000!5m2!1sde!2sde&maptype=roadmap&zoom=14&markers=color:red%7Clabel:S%7C51.3397,12.3738%7Ccolor:blue%7Clabel:T%7C51.3394,12.3681%7Ccolor:green%7Clabel:N%7C51.3369,12.3810%7Ccolor:orange%7Clabel:A%7C51.3389,12.3750"
+                                    width="100%" 
+                                    height="400" 
+                                    style={{ border: 0, borderRadius: '6px' }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Leipzig Stadtrundgang - Alle Sehenswürdigkeiten"
+                                />
+                            </div>
                         </div>
                     </div>
                 );
