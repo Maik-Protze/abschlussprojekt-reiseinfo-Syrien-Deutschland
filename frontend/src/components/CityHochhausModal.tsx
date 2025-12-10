@@ -19,7 +19,6 @@ const CityHochhausModal: React.FC<CityHochhausModalProps> = ({ isOpen, onClose }
             '/germany/leipzig/restaurant-uni-riese.jpg'
         ],
         panorama: [
-            '/germany/leipzig/city-hochhaus-panorama1.jpg'
         ]
     };
 

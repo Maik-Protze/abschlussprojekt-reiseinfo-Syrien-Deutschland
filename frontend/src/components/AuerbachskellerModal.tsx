@@ -13,12 +13,10 @@ const AuerbachskellerModal: React.FC<AuerbachskellerModalProps> = ({ isOpen, onC
 
     const images = {
         exterior: [
-            '/germany/leipzig/auerbachs-keller-eingang.jpg',
+            '/germany/leipzig/auerbachs-keller-eingang1.jpg',
             '/germany/leipzig/auerbachs-keller-fassade.jpg'
         ],
         interior: [
-            '/germany/leipzig/auerbachs-keller-weinstube.jpg',
-            '/germany/leipzig/auerbachs-keller-historische-raeume.jpg'
         ],
         restaurant: [
             '/germany/leipzig/auerbachs-keller.jpg',
